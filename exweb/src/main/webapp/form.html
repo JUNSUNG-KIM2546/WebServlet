@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HELLO</title>
+</head>
+<body>
+
+<h1>금요일.....</h1>
+	<form action="/exweb/form.do" method="post">
+		<h5>주문할 상품 :</h5>
+		<select name="prod">
+			<option value="shoes">신발</option>
+			<option value="watch">시계</option>
+			<option value="furniture">가구</option>
+		</select>
+			<br/>
+			<h5>좋아하는 과일 :</h5>
+			<input type="radio" name="fruit" value="berry"/> 딸기
+			<input type="radio" name="fruit" value="peach"/> 복숭아
+			<input type="radio" name="fruit" value="orange"/> 귤
+			<br/>
+			<h5>음료 :</h5> 
+			<input type="checkbox" name="drink" value="coffee"/> 커피
+			<input type="checkbox" name="drink" value="greentea"/> 녹차
+			<input type="checkbox" name="drink" value="blacktea"/> 홍차
+			<input type="checkbox" name="drink" value="beer"/> 대동강맥주
+			<input type="checkbox" name="drink" value="SoJu"/> 참이슬
+			<br/>
+			<input type="submit">	<!-- 버튼 -->
+		
+	</form>
+	<!-- 딸기를 선택하면 fruit=berry,  	name="fruit" = 파라미터 이름    value="berry"= 파라미터 값
+		 복숭아를 선택하면 fruit=peach,
+		 귤을 선택하면 fruit=orange 라고 파라미터를 전송하도록 구현하세요. -->
+	<!-- 커피를 선택하면 drink=coffee,
+		 녹차를 선택하면 drink=greentea,
+		 홍차을 선택하면 drink=blacktea 라고 파라미터를 전송하도록 구현하세요.
+		 submit 버튼을 클릭하면,
+		 선택한 상품의 사진
+		 선택한 과일의 이름 ("berry", "peach", "orange")
+		 선택한 음료의 이름들 ("coffee", "greentea", "blacktea")
+		 이 화면에 출력되도록 FormServlet 클래스를 변경하세요.
+		 상품사진의 주소:
+		 신발 : api.lorem.space/image/shoes?w=150&h=150 
+		 시계 : api.lorem.space/image/watch?w=150&h=150
+		 가구 : api.lorem.space/image/furniture?w=150&h=150 -->
+		 
+	<h2>회원추가</h2>
+	<form action="/exweb/member/add2.do" method="post">
+		아이디 : <input type="text" name="memId" value=""/><br>		<!-- value값를 빈칸으로 두면 초기값은 공백으로 된다 -->
+		비밀번호 : <input type="password" name="memPass" value=""/><br>
+		이름 : <input type="text" name="memName" value=""/><br>
+		뽀인트 : <input type="number" name="memPoint" value="0"/><br>
+		<input type="submit"/>	<!-- 버튼 -->
+	</form>
+	 submit 버튼을 클릭하면 입력한 회원정보가 데이터베이스에 추가되도록
+	 MemAddServlet을 변경하세요.
+	 실행경과 "1명의 회원 추가" 메시지가 이클립스 콘솔이 아닌 웹 브라우저 화면에 출력되도록 MemAddServlet을 변경하세요.
+	 
+	 <h2>학생추가</h2>
+	<form action="/exweb/member/add3.do" method="post">
+		학번 : <input type="text" name="stuNo" value=""/><br>		<!-- value값를 빈칸으로 두면 초기값은 공백으로 된다 -->
+		이름 : <input type="text" name="stuName" value=""/><br>
+		점수 : <input type="number" name="stuScore" value="0"/><br>
+		<input type="submit"/>	<!-- 버튼 -->
+	</form>
+		 
+		 
+</body>
+</html>
