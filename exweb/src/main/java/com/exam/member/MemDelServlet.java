@@ -26,15 +26,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/member/del.do")
 public class MemDelServlet extends HttpServlet {
 	
-	{
-		// 서블릿이 만들어질때 한번만 실행되는
-		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
-				try {
-					Class.forName("oracle.jdbc.OracleDriver");
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-	}
+//	{
+//		// 서블릿이 만들어질때 한번만 실행되는
+//		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
+//				try {
+//					Class.forName("oracle.jdbc.OracleDriver");
+//				} catch (ClassNotFoundException e) {
+//					e.printStackTrace();
+//				}
+//	}
 	String url ="jdbc:oracle:thin:@localhost:1521:xe";		//데이터베이스 서버 주소	//@자신의 주소(호스트):포트번호:서비스이름
 	String user ="web";		//데이터베이스 접속 아이디
 	String password ="web01";		//데이터베이스 접속 비밀번호

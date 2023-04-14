@@ -29,15 +29,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/member/list2.do")
 public class MemListServlet2 extends HttpServlet {
 	
-	{
-		// 서블릿이 만들어질때 한번만 실행되는
-		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
-				try {
-					Class.forName("oracle.jdbc.OracleDriver");
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-	}
+//	{
+//		// 서블릿이 만들어질때 한번만 실행되는
+//		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
+//				try {
+//					Class.forName("oracle.jdbc.OracleDriver");
+//				} catch (ClassNotFoundException e) {
+//					e.printStackTrace();
+//				}
+//	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
@@ -58,6 +58,7 @@ public class MemListServlet2 extends HttpServlet {
 		out.print("<title>회원 목록</title>               ");
 		out.print("</head>                             ");
 		out.print("<body>                              ");
+		out.print("<h1> 회원 목록 </h1>");
 		
 		String sql = "SELECT mem_ID,MEM_PASS,MEM_NAME,MEM_POINT FROM MEMBER ORDER BY mem_Id";							//*중요* 안에 세미콜론은 없어도 됨
 		
