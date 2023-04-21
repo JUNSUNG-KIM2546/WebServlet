@@ -67,11 +67,15 @@ load-on-startup 값을 0이상의 정수로 지정을 하면, 서버(톰캣) 시
   <filter>
   	<filter-name>encFilter</filter-name>
   	<filter-class>com.exam.comm.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>	<!-- 변수명(이름) -->
+  		<param-value>UTF-8</param-value>	<!-- 값 -->
+  	</init-param>
   </filter>
   
   <filter-mapping>
   	<filter-name>encFilter</filter-name>
-  	<url-pattern>/member/*</url-pattern>
+  	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
   

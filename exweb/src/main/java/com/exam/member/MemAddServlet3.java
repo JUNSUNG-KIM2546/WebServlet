@@ -27,7 +27,7 @@ public class MemAddServlet3 extends HttpServlet {
 //	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
-		req.setCharacterEncoding("UTF-8");
+//		req.setCharacterEncoding("UTF-8"); //필터로 이동
 		
 		resp.setContentType("text/html"); // 응답내용의 데이터타입을 설정 (문자, 데이터 타입형식을 무엇인지 알려주고 지정) //resp.setCon 치고 자동 완성
 		resp.setCharacterEncoding("UTF-8"); // 응답내용을 쓸 때 사용할 문자인코딩 방식 지정(파이프가 객체를 가져오기 전에 인코딩 해야함) 웹브라우저에세 정보제공

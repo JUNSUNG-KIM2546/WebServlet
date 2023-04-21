@@ -3,10 +3,13 @@ package com.exam.comm;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 // 리스너 : 특정 사건이 발생했을 때 자동으로 실행되는 객체 
 //	- 감지하고 싶은 사건의 종류에 따라서 그에 맞는 리스너인터페이스를 구현
+//  - web.xml 파일에 <listener>를 사용하여 등록하거나, @WebListener를 클래스에 적용
 
+//@WebListener
 public class DriverListener implements ServletContextListener {
 
 		
