@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 //MemAddServlet2 클래스를 변경하세요.
 @WebServlet("/member/add2.do")
 public class MemAddServlet2 extends HttpServlet {
-	private MemberDao memberDao = new MemberDaoJdbc();	//클래스 객체를 만들어줌 (참조할수 있게)
+	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
 	
 //		// 서블릿이 만들어질때 한번만 실행되는
 //		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요

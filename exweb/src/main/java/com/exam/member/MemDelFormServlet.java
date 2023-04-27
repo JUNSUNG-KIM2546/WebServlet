@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 public class MemDelFormServlet extends HttpServlet {
 
 	String url ="jdbc:oracle:thin:@localhost:1521:xe";		//데이터베이스 서버 주소	//@자신의 주소(호스트):포트번호:서비스이름
-	String user ="web";		//데이터베이스 접속 아이디
-	String password ="web01";		//데이터베이스 접속 비밀번호
+	String user ="WEB";		//데이터베이스 접속 아이디
+	String password ="WEB01";		//데이터베이스 접속 비밀번호
 	
 	
 	@Override
@@ -43,19 +43,18 @@ public class MemDelFormServlet extends HttpServlet {
 		out.print("<html>                              ");
 		out.print("<head>                              ");
 		out.print("<meta charset='UTF-8'>              ");
-		out.print("<title>회원 삭제</title>                ");
+		out.print("<title>회원 삭제</title>              ");
 		out.print("</head>                             ");
 		out.print("<body>                              ");
-		out.print("	<h1> 회원 삭제 </h1> ");
+		out.print("	<h1> 회원 삭제 </h1> 				   ");
 		out.print("<form action='" + req.getContextPath() + "/member/del.do'>");
 		out.print("		아이디 : <input type='text' name='memId' value=''><br>"			);
 		out.print("		<input type='submit'/>"	);
 		out.print("</form>");
 		out.print("	<h2>=================================================================</h2> ");
 		out.print("	<h2>회원목록으로 가기</h2> ");
-		out.print("<form action='" + req.getContextPath() + "/member/list2.do' method='post'>");
-		out.print("<input type='submit'/>");
-		out.print("</form>");
+		out.print("<a href='" + req.getContextPath() + "/member/list2.do' method='post'>");
+		out.print("		<button type='button'> 회원 목록 </button>");
 		out.print("</body>                             ");
 		out.print("</html>                             ");
 	}

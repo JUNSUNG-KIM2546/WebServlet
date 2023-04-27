@@ -40,8 +40,8 @@ public class MemAddServlet3 extends HttpServlet {
 		int stuScores = Integer.parseInt(stuScore);
 		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";		//데이터베이스 서버 주소	//@자신의 주소(호스트):포트번호:서비스이름
-		String user ="web";		//데이터베이스 접속 아이디
-		String password ="web01";		//데이터베이스 접속 비밀번호
+		String user ="WEB";		//데이터베이스 접속 아이디
+		String password ="WEB01";		//데이터베이스 접속 비밀번호
 		
 		String sql = "INSERT INTO STUDENT ( STU_NO ,STU_NAME, STU_SCORE )"		//SQL 문
 					+ "VALUES ( ?, ?, ? )";							//*중요* 안에 세미콜론은 없어도 됨

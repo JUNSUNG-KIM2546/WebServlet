@@ -45,9 +45,8 @@ public class MemAddFormServlet extends HttpServlet {
 		out.print("</form>"						);
 		out.print("	<h2>=================================================================</h2> ");
 		out.print("	<h2>회원목록으로 가기</h2> ");
-		out.print("<form action='" + req.getContextPath() + "/member/list2.do' method='post'>");
-		out.print("<input type='submit'/>");
-		out.print("</form>");
+		out.print("<a href='" + req.getContextPath() + "/member/list2.do' method='post'>");
+		out.print("		<button type='button'> 회원 목록 </button>");
 		out.print("</body>"						);
 		out.print("</html>"                 	);
 		System.out.println("접속 하였습니다."		);

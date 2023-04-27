@@ -12,8 +12,8 @@ import java.util.List;
 public class MemberDaoJdbc implements MemberDao {
 	// 데이터베이스 정보
 	String url ="jdbc:oracle:thin:@localhost:1521:xe";		//데이터베이스 서버 주소	//@자신의 주소(호스트):포트번호:서비스이름
-	String user ="web";		//데이터베이스 접속 아이디
-	String password ="web01";		//데이터베이스 접속 비밀번호
+	String user ="WEB";		//데이터베이스 접속 아이디
+	String password ="WEB01";		//데이터베이스 접속 비밀번호
 	
 	// 회원목록 검색
 	@Override

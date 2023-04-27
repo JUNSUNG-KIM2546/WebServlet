@@ -30,8 +30,8 @@ public class MemListServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
 		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";		//데이터베이스 서버 주소	//@자신의 주소(호스트):포트번호:서비스이름
-		String user ="web";		//데이터베이스 접속 아이디
-		String password ="web01";		//데이터베이스 접속 비밀번호
+		String user ="WEB";		//데이터베이스 접속 아이디
+		String password ="WEB01";		//데이터베이스 접속 비밀번호
 		
 		String sql = "SELECT mem_ID,MEM_PASS,MEM_NAME,MEM_POINT FROM MEMBER";							//*중요* 안에 세미콜론은 없어도 됨
 		
