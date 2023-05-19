@@ -12,5 +12,8 @@ public interface MemberDao {
 
 	// 회원 삭제
 	int deleteMember(String memId);
+	
+	// 회원 수정(회원정보 불러오기)
+	MemberVo selectMember(String memId);
 
 }

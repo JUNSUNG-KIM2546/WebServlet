@@ -17,9 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 //회원정보 추가 후 화면에 "회원목록으로 이동" 링크를 추가하고
 //그 링크를 클릭하면, 회원목록  화면으로 이동하도록
 //MemAddServlet2 클래스를 변경하세요.
-@WebServlet("/member/add2.do")
+@WebServlet("/member/add2.do")	//생성페이지
 public class MemAddServlet2 extends HttpServlet {
 	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
+	
+	// MemAddForm, MemAddServlet 하나로 합쳐서 하는 방법
+	@Override	//겟방식
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/WEB-INF/views/member/memAdd.jsp").forward(req, resp);
+	}
+	
+	@Override	//포스트방식
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 //		// 서블릿이 만들어질때 한번만 실행되는
 //		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
@@ -28,9 +37,7 @@ public class MemAddServlet2 extends HttpServlet {
 //				} catch (ClassNotFoundException e) {
 //					e.printStackTrace();
 //				}
-	
-	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
+		
 //		req.setCharacterEncoding("UTF-8");
 		
 		MemberVo vo = new MemberVo();

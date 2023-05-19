@@ -123,4 +123,6 @@ public class MemberDaoJdbc implements MemberDao {
 		return n;
 	}
 	
+	
+	
 }

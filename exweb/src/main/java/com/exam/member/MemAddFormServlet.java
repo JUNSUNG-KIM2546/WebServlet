@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 //웹브라우저에서 /member/addform.do 로 요청을 보내면
 //웹브라우저 화면에 회원정보를 입력하는 폼을 출력하도록
 //MemAddFormServlet을 변경하세요.
-@WebServlet("/member/addform.do")
+//@WebServlet("/member/addform.do")
 public class MemAddFormServlet extends HttpServlet {
 	
 	@Override

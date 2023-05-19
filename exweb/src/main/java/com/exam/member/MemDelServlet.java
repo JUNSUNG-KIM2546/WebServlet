@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 //FROM MEMBER  
 //WHERE MEM_ID = '삭제할회원아이디';
 
-@WebServlet("/member/del.do")
+@WebServlet("/member/del.do")	//삭제페이지
 public class MemDelServlet extends HttpServlet {
 	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
 	

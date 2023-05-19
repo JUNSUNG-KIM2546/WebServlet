@@ -71,6 +71,18 @@ public class MemberDaoBatis implements MemberDao {
 			}
 		return nums;
 	}
+	
+	// 회원목록에서 아이디를 클릭하면, MemEditServlet 과 memEdit.jsp 가 순차적으로 실행되어 회원정보변경 화면이 브라우저에 출력되도록 구현
+	@Override
+	public MemberVo selectMember(String memId) {
+		MemberVo vo = null;
+		
+			try (SqlSession session = sqlSessionFactory.openSession()) {
+				vo = session.selectOne("com.exam.member.MemberDao.selectMember", memId);
+			}
+		
+			return vo;
+	}
 
 	
 	
