@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 //회원목록 화면에 "회원추가" 링크를 추가하고,
 // 그 링크를 클릭하면, 회원정보를 입력하는 폼 화면으로 이동하도록
@@ -27,6 +28,9 @@ import javax.servlet.http.HttpServletResponse;
 //회원목록의 각 회원정보 옆에 "삭제" 링크를 출력하고,
 // 링크를 클릭하면 해당 회원이 삭제되도록
 // MemListServlet 클래스를 변경하세요.
+
+// 05.26
+// 로그인하지 않은 상태에서 회원목록 페이지에 접속하면, 로그인 화면으로 이동하도록 구현
 
 @WebServlet("/member/list2.do")	//목록페이지
 public class MemListServlet2 extends HttpServlet {
@@ -41,7 +45,7 @@ public class MemListServlet2 extends HttpServlet {
 //				}
 	
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
 		
 		List<MemberVo> List = memberDao.selectMemberList();	
 		// 서블릿파일 + JSP파일

@@ -78,5 +78,16 @@ load-on-startup 값을 0이상의 정수로 지정을 하면, 서버(톰캣) 시
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  <!-- 로그인 필터 설정 -->
+  <filter>
+  	<filter-name>login</filter-name>
+  	<filter-class>com.exam.comm.LoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   
 </web-app>

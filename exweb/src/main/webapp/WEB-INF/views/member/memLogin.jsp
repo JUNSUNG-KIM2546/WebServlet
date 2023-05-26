@@ -6,19 +6,17 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<title>회원 가입</title>
+<title>로그인</title>
 </head>
 <body>
 
 <jsp:include page="/WEB-INF/views/menu.jsp" />
 
-<h1>회원추가</h1>
-<form action='${pageContext.request.contextPath}/member/add2.do' method='post'>
+<h1>로그인</h1>
+<form action='${pageContext.request.contextPath}/member/login.do' method='post'>
 		아이디 : 	 <input type='text' name='memId' value=''><br>
 		비밀번호 : <input type='password' name='memPass' value='' /><br>
-		이름 : 	 <input type='text' name='memName' value='' /><br>
- 		뽀인트 : 	 <input type='number' name='memPoint' value='0' /><br>
-		<input type='submit'/>
+		<input type='submit' value="로그인"/>
 </form>
 	<h2>=================================================================</h2> 
 	<h2>회원목록으로 가기</h2>

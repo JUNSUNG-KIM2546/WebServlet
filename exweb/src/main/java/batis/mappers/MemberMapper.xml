@@ -22,7 +22,7 @@
 	<select id="selectMemberList" resultType="com.exam.member.MemberVo">	<!-- 바티스셋팅(값 true) 해줘야 목록이 뜬다 -->
 	<!-- resultMap속성을 사용하여, id가 MemberMap인 resultMap에 써놓은대로 조회결과를 담도록 설정 -->
 	<!--   <select id="selectMemberList" resultMap="MemberMap"> --> <!-- 리설트맵을 불러와라 -->
-    SELECT mem_ID, MEM_PASS, MEM_NAME, MEM_POINT
+    SELECT mem_ID,<!--  MEM_PASS, --> MEM_NAME, MEM_POINT
     FROM MEMBER
     ORDER BY mem_Id
   </select>
@@ -30,7 +30,7 @@
 	<select id="selectMember" resultType="com.exam.member.MemberVo">	<!-- 바티스셋팅(값 true) 해줘야 목록이 뜬다 -->
 	<!-- resultMap속성을 사용하여, id가 MemberMap인 resultMap에 써놓은대로 조회결과를 담도록 설정 -->
 	<!--   <select id="selectMemberList" resultMap="MemberMap"> --> <!-- 리설트맵을 불러와라 -->
-    SELECT mem_ID, MEM_PASS, MEM_NAME, MEM_POINT
+    SELECT mem_ID, <!-- MEM_PASS, --> MEM_NAME, MEM_POINT
     FROM MEMBER
     WHERE mem_ID = #{memId}
     ORDER BY mem_Id
@@ -39,6 +39,7 @@
   <!--   파라미터(인자)로 받은 객체의 속성값들을 SQL문 내에 사용하기 위해서 #{속성명} 또는 &{속성명} 표현을 사용
   #{속성명} : JDBC의 ? 채우기와 같은 방식으로 동작
   &{속성명} : 문자열 이어붙이기 방식으로 동작 (보안상 위험하므로 가급적 사용자제) -->
+  <!-- 회원 등록 -->
   <insert id="insertMember" parameterType="MemberVo">
   	INSERT INTO MEMBER ( mem_id ,MEM_PASS, MEM_NAME, MEM_POINT )
 	VALUES ( #{memId}, #{memPass}, #{memName}, #{memPoint} )
@@ -46,5 +47,19 @@
 <!-- SQL문 실행시 전달받는 데이터의 타입을 parameterType 속성에 지정 가능(생략 가능) -->
 <!-- 문자열, 정수 등 단일값을 갖는 데이터를 파라미터(인자)로 받은 경우, #{속성명} 의 속성명에는 어떤 이름을 써도 무방 -->
 <!-- 밀반적으로 value 또는 변수명을 사용 -->
+
+	<!-- 회원 수정 -->
+  <update id="updateMember" parameterType="MemberVo">
+  	UPDATE MEMBER
+  	SET mem_Pass = #{memPass}, mem_Name = #{memName} , mem_Point = #{memPoint}
+  	WHERE mem_ID = #{memId}
+  </update>
+  
+  <!-- 회원 로그인 -->
+  <select id="selectLogin" resultType="com.exam.member.MemberVo">
+  SELECT mem_ID, <!-- MEM_PASS, --> MEM_NAME, MEM_POINT
+    FROM MEMBER
+    WHERE mem_ID = #{memId} AND mem_Pass = #{memPass}
+  </select>
   
 </mapper>

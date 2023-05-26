@@ -10,10 +10,13 @@
 <title>회원 관리</title>
 </head>
 <body>
+
+<jsp:include page="/WEB-INF/views/menu.jsp" />
+
 <h1> 회원 목록 </h1>
-<%-- <a href='<%=request.getContextPath()%>/member/add2.do'><button type='button'> 회원 추가 </button></a> --%>
-<a href='${pageContext.request.contextPath}/member/add2.do'>회원추가</a>
-<a href='<c:url value="/member/add2.do"/>'>회원추가</a>
+<%-- <a href='<%=request.getContextPath()%>/member/add2.do'><button type='button'> 회원 추가 </button></a> --%><!-- 이건 안쓰는 방법 -->
+<%-- <a href='${pageContext.request.contextPath}/member/add2.do'>회원추가</a> --%>
+<%-- <a href='<c:url value="/member/add2.do"/>'>회원추가</a> --%>
 
 <%-- <%
 for (MemberVo vo : List) {   c:forEach로 처리 = <%=vo.getMemPoint()%> 를 ${vo.getMemPoint()} 바꿔줘야함		EL = ${}
@@ -46,14 +49,6 @@ for (MemberVo vo : List) {   c:forEach로 처리 = <%=vo.getMemPoint()%> 를 ${v
 }
 %>	 --%>
 
-<h2>==================================== 회원 추가 ====================================</h2>
-<a href='${pageContext.request.contextPath}/member/add2.do' method='post'>
-		<button type='button'> 회원 추가하기 </button>
-</a>
-<h2>==================================== 회원 삭제(구현 안됨) ====================================</h2>
-<a href='${pageContext.request.contextPath}/member/del.do' method='post'>
-		<button type='button'> 회원 삭제하기 </button>
-</a>
 </body>
 </html>
 
