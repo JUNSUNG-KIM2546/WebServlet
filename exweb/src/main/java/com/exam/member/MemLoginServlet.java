@@ -23,7 +23,7 @@ import javax.websocket.Session;
 // 로그인 화면에서 submit 버튼을 클릭하면, LoginServlet 클래스의 doPost가 실행되도록 구현
 @WebServlet("/member/login.do")	//수정페이지
 public class MemLoginServlet extends HttpServlet {
-	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
+	private MemberService memberService = MemberServiceImpl.getInstacne();	//클래스 객체를 만들어줌 (참조할수 있게)
 	
 	// MemAddForm, MemAddServlet 하나로 합쳐서 하는 방법
 	@Override	//겟방식
@@ -46,7 +46,7 @@ public class MemLoginServlet extends HttpServlet {
 		vo.setMemId(req.getParameter("memId"));
 		vo.setMemPass(req.getParameter("memPass"));
 		
-		MemberVo lo = memberDao.selectLogin(vo);
+		MemberVo lo = memberService.selectLogin(vo);
 		
 		// 로그인 실패
 		if (lo == null) {

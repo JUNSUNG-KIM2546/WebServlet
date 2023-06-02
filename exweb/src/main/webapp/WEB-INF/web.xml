@@ -85,9 +85,23 @@ load-on-startup 값을 0이상의 정수로 지정을 하면, 서버(톰캣) 시
   </filter>
   
   <filter-mapping>
+  	<!-- .do로 끝나는것만 필터를 적용 하겠다,(로그인페이지로 보내겠다.) -->
   	<filter-name>login</filter-name>
-  	<url-pattern>/*</url-pattern>
+  	<url-pattern>*.do</url-pattern>
   </filter-mapping>
   
+  <!-- 웹애플리케이션에서 오류가 발생했을때 실행할 서블릿 또는 JSP 설정 -->
+  <error-page>
+  	<!-- 응답 상태코드가 404인 경우, 실행할 오류페이지 지정 -->
+  	<error-code>404</error-code>
+  	<location>/err404.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<!-- 널포인트 인셉션에러 원인 넣기 -->
+  	<!-- 발생한 예외객체가 java.lang.NullPointerException 타입인 경우, 실행할 오류페이지 지정 -->
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/errNull.jsp</location>
+  </error-page>
   
 </web-app>

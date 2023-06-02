@@ -62,4 +62,10 @@
     WHERE mem_ID = #{memId} AND mem_Pass = #{memPass}
   </select>
   
+  <delete id="deleteMember" parameterType="java.lang.String">
+  DELETE
+  FROM MEMBER
+  WHERE mem_ID = #{memId}
+  </delete>
+  
 </mapper>

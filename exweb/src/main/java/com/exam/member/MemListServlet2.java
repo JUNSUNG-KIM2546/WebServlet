@@ -34,7 +34,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/member/list2.do")	//목록페이지
 public class MemListServlet2 extends HttpServlet {
-	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
+	private MemberService memberService = MemberServiceImpl.getInstacne();	//클래스 객체를 만들어줌 (참조할수 있게)
 	
 //		// 서블릿이 만들어질때 한번만 실행되는
 //		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
@@ -47,7 +47,7 @@ public class MemListServlet2 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
 		
-		List<MemberVo> List = memberDao.selectMemberList();	
+		List<MemberVo> List = memberService.selectMemberList();	
 		// 서블릿파일 + JSP파일
 		
 		req.setAttribute("memberList", List);

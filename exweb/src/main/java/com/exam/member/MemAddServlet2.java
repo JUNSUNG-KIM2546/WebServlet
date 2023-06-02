@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 //MemAddServlet2 클래스를 변경하세요.
 @WebServlet("/member/add2.do")	//생성페이지
 public class MemAddServlet2 extends HttpServlet {
-	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
+	private MemberService memberService = MemberServiceImpl.getInstacne();	//클래스 객체를 만들어줌 (참조할수 있게)
 	
 	// MemAddForm, MemAddServlet 하나로 합쳐서 하는 방법
 	@Override	//겟방식
@@ -48,7 +48,7 @@ public class MemAddServlet2 extends HttpServlet {
 		vo.setMemName(req.getParameter("memName"));
 		vo.setMemPoint(Integer.parseInt(req.getParameter("memPoint")));
 		
-		int n = memberDao.insertMember(vo);	//클래스 참조하라
+		int n = memberService.insertMember(vo);	//클래스 참조하라
 		
 		System.out.println(n + "명의 회원 추가");
 		

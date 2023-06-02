@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/member/del.do")	//삭제페이지
 public class MemDelServlet extends HttpServlet {
-	private MemberDao memberDao = new MemberDaoBatis();	//클래스 객체를 만들어줌 (참조할수 있게)
+	private MemberService memberService = MemberServiceImpl.getInstacne();	//클래스 객체를 만들어줌 (참조할수 있게)
 	
 //		// 서블릿이 만들어질때 한번만 실행되는
 //		// 애플리케이션에 JDBC 사용 전에 최초 1번은 JDBC 드라이버 클래스를 메모리에 로드 필요
@@ -46,7 +46,7 @@ public class MemDelServlet extends HttpServlet {
 	
 		String memId = req.getParameter("memId");		//파라미터 값으로
 		
-		int n = memberDao.deleteMember(memId);	//클래스 참조하라
+		int n = memberService.deleteMember(memId);	//클래스 참조하라
 		
 		System.out.println( n + "명의 회원 삭제 성공");
 		

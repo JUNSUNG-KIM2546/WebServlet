@@ -1,6 +1,8 @@
 package com.exam.comm;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -22,6 +24,14 @@ import com.exam.member.MemberVo;
 //05.26
 // 로그인 하지 않은 상태는 로그인창으로 가지게 하는 필터
 public class LoginFilter implements Filter {
+	private List<String> whiteList = new ArrayList<String>();
+	
+	// 필터가 처음 생성됐을 때 1번 실행 (초기화 메소드)
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		whiteList.add("/member/login.do");
+		whiteList.add("/member/add2.do");
+	}
 	
 	@Override	//ServletRequest 상위 , HttpServletRequest 하위
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -32,8 +42,10 @@ public class LoginFilter implements Filter {
 		
 		System.out.println("URI : " + req.getRequestURI());
 		System.out.println("URL : " + req.getRequestURL());
+		String reqPath = req.getRequestURI().substring( req.getContextPath().length() );
+		System.out.println("reqPath: " + reqPath);
 		
-		if (!req.getRequestURI().equals(req.getContextPath() + "/member/login.do")) { //false 일때 실행 해야함
+		if (whiteList.contains( reqPath ) == false) { //false 일때 실행 해야함
 			// 요청보낸 사용자의 세션을 가져와서
 			HttpSession session = req.getSession();
 			//세션에 로드인정보를 꺼내와서
@@ -41,7 +53,7 @@ public class LoginFilter implements Filter {
 			//로그인 정보가 없다면, 로그인 페이지로 이동
 			if (vo == null) { // 로그인 실패
 				// 로그인 실패시 다시 로그인창으로 이동
-				resp.sendRedirect(req.getContextPath() + "/member/login.do");	
+				resp.sendRedirect(req.getContextPath() + "/member/login.do");
 				System.out.println("로그인을 해주세요");
 				return;
 			}
